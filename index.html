@@ -7,7 +7,7 @@
   <style>
     @font-face {
       font-family: "BFCMapleOrange";
-      src: url("assets/BFCMapleOrange.otf") format("opentype");
+      src: url("fonts/BFCMapleOrange.otf") format("opentype");
       font-display: swap;
     }
 
@@ -33,6 +33,10 @@
       background: var(--pink);
       color: var(--text);
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h1 {
+      font-family: "BFCMapleOrange", "Georgia", serif;
     }
 
     .page {
@@ -168,6 +172,15 @@
       grid-template-columns: auto 1fr auto;
       gap: 10px;
       align-items: center;
+    }
+
+    .locations-title {
+      margin: 6px 0 0;
+      font-family: "BFCMapleOrange", "Georgia", serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      line-height: 1.1;
+      color: #7e5054;
+      text-align: center;
     }
 
     .quote-arrow-icon {
@@ -349,23 +362,7 @@
             <polygon points="78,296 390,322 356,188 694,384 356,580 390,446 78,472"></polygon>
           </svg>
         </div>
-        <section class="placeholder-box" aria-label="Disney Travel Center embed">
-          <div>
-            <iframe
-              id="iframe"
-              src="https://www.disneytravelcenter.com/ecf8a8d4c4/"
-              scrolling="yes"
-              style="width: 90%; height: 667px; margin: 0 auto; display: block; border: none;">
-            </iframe>
-          </div>
-          <script>
-            window.onmessage = (e) => {
-              if (e.data.hasOwnProperty("frameHeight")) {
-                document.getElementById("iframe").style.height = `${e.data.frameHeight + 30}px`;
-              }
-            };
-          </script>
-        </section>
+        <p class="locations-title">Locations I can help you get to!</p>
       </div>
       <div class="sidebar-column">
         <section class="contact-box" aria-label="Contact Me">
@@ -398,3 +395,4 @@
   </div>
 </body>
 </html>
+
