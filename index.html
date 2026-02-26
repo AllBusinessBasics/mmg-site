@@ -22,6 +22,7 @@
       --mint: #CAE1D8;
       --cream: #FEE7C3;
       --text: #3f3a37;
+      --location-card-width: 176px;
     }
 
     * {
@@ -44,7 +45,7 @@
     }
 
     .page {
-      padding: 24px 16px;
+      padding: 30px 16px 34px;
     }
 
     .header-box {
@@ -54,14 +55,14 @@
       border: 4px solid var(--mint);
       border-radius: 18px;
       text-align: center;
-      padding: 24px 20px 18px;
+      padding: 28px 20px 24px;
       box-shadow: 0 10px 24px rgba(63, 58, 55, 0.18);
     }
 
     .brand-title {
       margin: 0;
       font-family: "BFCMapleOrange", "Georgia", serif;
-      font-size: clamp(2.8rem, 8.5vw, 4.8rem);
+      font-size: clamp(3.4rem, 10vw, 5.8rem);
       line-height: 1.05;
       letter-spacing: 0.04em;
       color: #7e5054;
@@ -77,10 +78,10 @@
 
     .content-layout {
       max-width: 980px;
-      margin: 18px auto 0;
+      margin: 24px auto 0;
       display: grid;
       grid-template-columns: 1fr 320px;
-      gap: 16px;
+      gap: 20px;
       align-items: start;
     }
 
@@ -144,7 +145,7 @@
 
     .main-column {
       display: grid;
-      gap: 14px;
+      gap: 18px;
       align-items: start;
     }
 
@@ -152,16 +153,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
+      width: auto;
       border: 0;
       border-radius: 12px;
-      padding: 24px 18px;
+      padding: 28px 20px;
       background: #4f6a60;
       color: #fff;
       font-family: "BFCMapleOrange", "Georgia", serif;
-      font-size: 1.8rem;
+      font-size: 2rem;
       text-decoration: none;
       text-align: center;
+      white-space: nowrap;
       cursor: pointer;
       box-shadow: 0 8px 18px rgba(63, 58, 55, 0.2);
     }
@@ -172,19 +174,96 @@
 
     .quote-row {
       display: grid;
-      width: 100%;
-      grid-template-columns: auto 1fr auto;
-      gap: 10px;
+      width: fit-content;
+      grid-template-columns: auto auto auto;
+      gap: 14px;
       align-items: center;
+      justify-content: center;
+      margin: 14px auto 0;
     }
 
     .locations-title {
-      margin: 6px 0 0;
+      margin: 20px 0 0;
       font-family: "BFCMapleOrange", "Georgia", serif;
       font-size: clamp(1.8rem, 5vw, 2.8rem);
       line-height: 1.1;
       color: #7e5054;
       text-align: center;
+    }
+
+    .locations-grid {
+      margin-top: 8px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .locations-row {
+      display: grid;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .locations-row-top {
+      grid-template-columns: repeat(3, var(--location-card-width));
+      margin: 0 auto;
+    }
+
+    .locations-row-top .location-card {
+      justify-content: flex-start;
+      padding-top: 20px;
+    }
+
+    .locations-row-bottom {
+      grid-template-columns: repeat(2, var(--location-card-width));
+      margin: 0 auto;
+    }
+
+    .location-card {
+      width: var(--location-card-width);
+      min-height: 214px;
+      background: linear-gradient(180deg, #ffffff, #fff6ea);
+      border: 3px solid var(--mint);
+      border-radius: 16px;
+      padding: 10px 8px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(63, 58, 55, 0.15);
+    }
+
+    .location-image {
+      display: block;
+      width: 125px;
+      height: 125px;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+
+    .location-image-cruise {
+      transform: scale(1.34);
+      transform-origin: center;
+    }
+
+    .location-image-aulani {
+      transform: scale(1.08);
+      transform-origin: center;
+      margin-top: 6px;
+    }
+
+    .location-image-adventures {
+      transform: scale(1);
+      transform-origin: center;
+    }
+
+    .location-label {
+      margin: 8px 0 0;
+      font-family: "Carbonara Spaghetti", "Trebuchet MS", cursive;
+      font-size: 1.4rem;
+      font-weight: 700;
+      min-height: 2.2em;
+      line-height: 1.1;
+      color: #4f6a60;
     }
 
     .quote-arrow-icon {
@@ -244,6 +323,7 @@
       color: #3f3a37;
       white-space: nowrap;
       letter-spacing: -0.01em;
+      text-decoration: none;
     }
 
     .instagram-btn {
@@ -334,6 +414,14 @@
         grid-template-columns: 1fr;
       }
     }
+
+    @media (max-width: 700px) {
+      .locations-row-top,
+      .locations-row-bottom {
+        grid-template-columns: 1fr;
+        max-width: 260px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -361,17 +449,43 @@
           <svg class="quote-arrow-icon" viewBox="0 0 768 768" aria-hidden="true">
             <polygon points="78,296 390,322 356,188 694,384 356,580 390,446 78,472"></polygon>
           </svg>
-          <a class="quote-btn" href="./form.html">CLICK HERE for a free quote!</a>
+          <a class="quote-btn" href="./form.html">CLICK HERE for a free trip quote!</a>
           <svg class="quote-arrow-icon quote-arrow-left" viewBox="0 0 768 768" aria-hidden="true">
             <polygon points="78,296 390,322 356,188 694,384 356,580 390,446 78,472"></polygon>
           </svg>
         </div>
         <p class="locations-title">Locations I can help you get to!</p>
+        <section class="locations-grid" aria-label="Destination options">
+          <div class="locations-row locations-row-top">
+            <article class="location-card">
+              <img class="location-image" src="assets/castle_yellow.png" alt="Disneyland icon">
+              <p class="location-label">Disneyland</p>
+            </article>
+            <article class="location-card">
+              <img class="location-image" src="assets/epcot_yellow.png" alt="Disney World icon">
+              <p class="location-label">Disney World</p>
+            </article>
+            <article class="location-card">
+              <img class="location-image location-image-cruise" src="assets/cruise_yellow.png" alt="Disney Cruise icon">
+              <p class="location-label">Disney Cruise</p>
+            </article>
+          </div>
+          <div class="locations-row locations-row-bottom">
+            <article class="location-card">
+              <img class="location-image location-image-aulani" src="assets/aulani_yellow.png" alt="Aulani icon">
+              <p class="location-label">Aulani</p>
+            </article>
+            <article class="location-card">
+              <img class="location-image location-image-adventures" src="assets/safari_yellow.png" alt="Adventures by Disney icon">
+              <p class="location-label">Adventures by Disney</p>
+            </article>
+          </div>
+        </section>
       </div>
       <div class="sidebar-column">
         <section class="contact-box" aria-label="Contact Me">
           <h2 class="about-title">Contact Me</h2>
-          <p class="contact-email">JamieK.BDEV@mousemamaguide.com</p>
+          <a class="contact-email" href="mailto:JamieK.BDEV@mousemamaguide.com">JamieK.BDEV@mousemamaguide.com</a>
           <a class="instagram-btn" href="https://www.instagram.com/mousemamaguide?igsh=dGpxa2VnOWFsZHBk&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg class="instagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
               <rect x="2.5" y="2.5" width="19" height="19" rx="5.2"></rect>
@@ -390,7 +504,7 @@
           </div>
         </section>
         <aside class="about-sidebar" aria-label="About Me">
-          <img class="about-photo" src="assets/MMA Profile Large.png" alt="Profile photo of Mouse Mama Guide">
+          <img class="about-photo" src="assets/MMA%20Profile%20Large.png" alt="Profile photo of Mouse Mama Guide">
           <h2 class="about-title">About Me</h2>
           <p class="about-copy">Hi, I'm Jamie. Welcome - I'm glad you're here! I am Disney obsessed and have been going to Disneyland my whole life. I am now a mom of 3 kiddos, and I love taking them on Disney trips. I love experiencing the magic through their eyes. I am an introvert &amp; homebody (other than vacations, of course). In my free time I love to read, cook, &amp; bake bread. I have a passion for planning vacations and would love to become your Mouse Mama Guide!</p>
         </aside>
